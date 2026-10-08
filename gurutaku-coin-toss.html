@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6c5ce7">
+<title>Coin Toss Challenge | Gurutaku</title>
+<style>
+:root{--bg:#f7f8ff;--card:#fff;--ink:#202342;--muted:#666b89;--purple:#6c5ce7;--purple-dark:#5647c7;--pink:#ff7eb6;--gold:#f7c948;--line:#e6e8f5;--shadow:0 18px 45px rgba(50,44,120,.12);--radius:24px}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 10% 10%,rgba(255,126,182,.14),transparent 26%),radial-gradient(circle at 90% 0%,rgba(108,92,231,.13),transparent 28%),var(--bg);color:var(--ink)}button{font:inherit}.app{width:min(1100px,94vw);margin:auto;padding:28px 0 42px}header{text-align:center;margin-bottom:22px}.brand{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--purple);letter-spacing:.02em;margin-bottom:8px}h1{margin:0;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05}.subtitle{margin:12px auto 0;max-width:720px;color:var(--muted);font-size:clamp(1rem,2vw,1.15rem);line-height:1.5}.layout{display:grid;grid-template-columns:minmax(280px,1fr) minmax(320px,1.25fr);gap:20px;align-items:stretch}.card{background:var(--card);border:1px solid rgba(108,92,231,.08);border-radius:var(--radius);box-shadow:var(--shadow)}.game-card,.stats-card{padding:22px}.game-card{display:flex;flex-direction:column;justify-content:space-between;min-height:620px}.stats-card{min-height:620px}.section-title{margin:0 0 14px;font-size:1.1rem}.coin-stage{display:grid;place-items:center;min-height:320px;position:relative;overflow:hidden;border-radius:20px;background:linear-gradient(160deg,rgba(247,201,72,.17),rgba(108,92,231,.08)),#fbfbff;border:1px solid var(--line)}.coin-wrap{width:180px;height:180px;perspective:900px}.coin{width:180px;height:180px;position:relative;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.16,.84,.2,1)}.coin-face{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%;backface-visibility:hidden;border:9px solid #e1ab25;background:radial-gradient(circle at 35% 30%,#ffe98c,#f7c948 55%,#d99f1f);box-shadow:inset 0 0 0 4px rgba(255,255,255,.35),inset 0 -8px 15px rgba(146,100,0,.2),0 14px 25px rgba(115,88,0,.2);color:#8a6200;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.coin-face:after{content:"";width:72%;height:72%;position:absolute;border:3px dashed rgba(138,98,0,.45);border-radius:50%}.coin-face span{position:relative;z-index:1;font-size:1.05rem}.coin-tails{transform:rotateY(180deg)}.coin-result{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.86);border:1px solid var(--line);font-weight:800;color:var(--purple-dark)}.flip-btn{width:100%;border:0;border-radius:18px;background:var(--purple);color:white;font-weight:800;font-size:1.12rem;padding:16px 18px;cursor:pointer;box-shadow:0 10px 22px rgba(108,92,231,.28);transition:transform .12s ease,background .2s ease;margin-top:16px}.flip-btn:hover{background:var(--purple-dark)}.flip-btn:active{transform:translateY(2px) scale(.995)}.flip-btn:disabled{opacity:.65;cursor:wait}.quick-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.quick-row button,.reset-btn{border:1px solid var(--line);background:white;color:var(--ink);font-weight:700;border-radius:12px;padding:10px 8px;cursor:pointer}.quick-row button:hover,.reset-btn:hover{border-color:rgba(108,92,231,.35);background:#f8f7ff}.explain{margin-top:16px;padding:14px 16px;border-radius:16px;background:#fff9e6;border:1px solid #f4e4a9;color:#654f00;line-height:1.45;font-size:.95rem}.score-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}.score-box{border:1px solid var(--line);border-radius:18px;padding:16px;text-align:center}.score-box h3{margin:0;font-size:.95rem}.score-number{display:block;font-size:2.5rem;font-weight:900;margin:4px 0 2px}.heads .score-number{color:var(--purple)}.tails .score-number{color:var(--pink)}.percentage{font-size:.95rem;color:var(--muted)}.bar-area{margin:18px 0}.bar-track{height:28px;display:flex;border-radius:999px;overflow:hidden;border:1px solid var(--line);background:#f0f1f8}.bar-heads,.bar-tails{width:50%;transition:width .25s ease}.bar-heads{background:linear-gradient(90deg,#7d6df0,#6c5ce7)}.bar-tails{background:linear-gradient(90deg,#ff9ac8,#ff7eb6)}.bar-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem;margin-top:7px}.closer-box{margin:18px 0;padding:16px;border-radius:18px;background:#f7f7ff;border:1px solid var(--line)}.closer-top{display:flex;align-items:center;justify-content:space-between;gap:14px}.closer-title{font-weight:800;margin-bottom:3px}.difference{font-size:1.8rem;font-weight:900;color:var(--purple);white-space:nowrap}.recent{margin-top:18px}.recent-pills{display:flex;flex-wrap:wrap;gap:7px;min-height:36px}.pill{border-radius:999px;padding:7px 10px;font-size:.82rem;font-weight:800;background:#f1f1ff;color:var(--purple-dark);border:1px solid #e3e1ff}.pill.tails{background:#fff0f6;border-color:#ffd5e5;color:#b84b7d}.footer-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}.message{color:var(--muted);font-size:.92rem;line-height:1.4}.reset-btn{white-space:nowrap;color:var(--purple-dark);border-color:#dcd9ff}.lesson{margin-top:20px;padding:20px 22px}.lesson-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.lesson-item{padding:14px;border-radius:16px;background:#fafaff;border:1px solid var(--line)}.lesson-item strong{display:block;margin-bottom:5px}.lesson-item p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.45}.tiny{margin-top:16px;text-align:center;color:var(--muted);font-size:.82rem}.celebrate{animation:pop .45s ease}@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}@media(max-width:820px){.layout{grid-template-columns:1fr}.game-card,.stats-card{min-height:auto}.lesson-grid{grid-template-columns:1fr}}@media(max-width:450px){.app{width:min(94vw,1100px);padding-top:18px}.game-card,.stats-card,.lesson{padding:16px}.coin-stage{min-height:270px}.coin-wrap,.coin{width:145px;height:145px}.score-number{font-size:2rem}.quick-row{grid-template-columns:repeat(2,1fr)}.footer-row{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="app">
+<header>
+<div class="brand">🎯 GURUTAKU</div>
+<h1>Coin Toss Challenge 🪙</h1>
+<p class="subtitle">Can a fair coin really land on Heads and Tails about half the time? Make a prediction, toss the coin, and watch the numbers change as your experiment grows.</p>
+</header>
+<section class="layout">
+<section class="card game-card">
+<div>
+<h2 class="section-title">Make your experiment</h2>
+<div class="coin-stage" aria-live="polite">
+<div class="coin-wrap"><div class="coin" id="coin"><div class="coin-face coin-heads"><span>Heads</span></div><div class="coin-face coin-tails"><span>Tails</span></div></div></div>
+<div class="coin-result" id="coinResult">Ready?</div>
+</div>
+<button class="flip-btn" id="flipBtn">🪙 Toss the Coin!</button>
+<div class="quick-row" aria-label="Quick toss choices">
+<button data-batch="10">Toss 10</button><button data-batch="50">Toss 50</button><button data-batch="100">Toss 100</button><button data-batch="1000">Toss 1,000</button>
+</div>
+<div class="explain"><strong>Important idea:</strong> 50–50 does <em>not</em> mean every small group will be exactly 50–50. A fair coin can give you 6 Heads and 4 Tails. As you make more and more tosses, the percentages usually move closer to 50–50.</div>
+</div>
+<div class="footer-row"><div class="message" id="message">Your first toss is a tiny experiment. Let's see what happens!</div><button class="reset-btn" id="resetBtn">Reset</button></div>
+</section>
+<section class="card stats-card">
+<h2 class="section-title">What is happening?</h2>
+<div class="score-row" id="scoreRow">
+<div class="score-box heads"><h3>🟣 Heads</h3><span class="score-number" id="headsCount">0</span><div class="percentage" id="headsPct">0.0%</div></div>
+<div class="score-box tails"><h3>🩷 Tails</h3><span class="score-number" id="tailsCount">0</span><div class="percentage" id="tailsPct">0.0%</div></div>
+</div>
+<div class="bar-area"><div class="bar-track" aria-label="Heads and Tails percentage bar"><div class="bar-heads" id="barHeads"></div><div class="bar-tails" id="barTails"></div></div><div class="bar-labels"><span>Heads</span><span>Tails</span></div></div>
+<div class="closer-box"><div class="closer-top"><div><div class="closer-title">How close are we to 50–50?</div><div class="message" id="closerText">Start tossing to find out.</div></div><div class="difference" id="difference">—</div></div></div>
+<div class="recent"><h3 class="section-title">Recent tosses</h3><div class="recent-pills" id="recentPills"><span class="pill">No tosses yet</span></div></div>
+<div class="closer-box" style="margin-bottom:0"><div class="closer-title">🧠 Fairness check</div><div class="message" id="fairnessMessage">A fair coin gives each side the same chance on every toss: 1 out of 2, or 50%.</div></div>
+</section>
+</section>
+<section class="card lesson">
+<h2 class="section-title">Three things to remember 🌟</h2>
+<div class="lesson-grid">
+<div class="lesson-item"><strong>1. Each toss is independent</strong><p>The last toss does not control the next one. After 5 Heads in a row, Tails is still a 50% chance on the next toss.</p></div>
+<div class="lesson-item"><strong>2. Small samples can look lopsided</strong><p>10 tosses might look like 7–3. That does not prove the coin is unfair.</p></div>
+<div class="lesson-item"><strong>3. More tosses reveal the pattern</strong><p>With lots of tosses, the Heads and Tails percentages tend to get closer to 50–50.</p></div>
+</div><div class="tiny">Made for Gurutaku — making learning fun by turning ideas into games. 🎮📚</div>
+</section>
+</main>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const coin=$('coin'),coinResult=$('coinResult'),flipBtn=$('flipBtn'),resetBtn=$('resetBtn'),headsCount=$('headsCount'),tailsCount=$('tailsCount'),headsPct=$('headsPct'),tailsPct=$('tailsPct'),barHeads=$('barHeads'),barTails=$('barTails'),difference=$('difference'),closerText=$('closerText'),fairnessMessage=$('fairnessMessage'),recentPills=$('recentPills'),message=$('message'),scoreRow=$('scoreRow');
+let heads=0,tails=0,total=0,turns=0,recent=[];
+function flip(){
+if(window.crypto&&crypto.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return(a[0]&1)?'Tails':'Heads';}
+return Math.random()<.5?'Heads':'Tails';
+}
+function pct(n){return total?(n/total)*100:0}
+function refresh(result){
+const hp=pct(heads),tp=pct(tails),d=Math.abs(hp-50);
+headsCount.textContent=heads.toLocaleString();tailsCount.textContent=tails.toLocaleString();headsPct.textContent=hp.toFixed(1)+'%';tailsPct.textContent=tp.toFixed(1)+'%';barHeads.style.width=(total?hp:50)+'%';barTails.style.width=(total?tp:50)+'%';
+if(!total){difference.textContent='—';closerText.textContent='Start tossing to find out.';fairnessMessage.textContent='A fair coin gives each side the same chance on every toss: 1 out of 2, or 50%.'}
+else{difference.textContent=d.toFixed(1)+'%';closerText.textContent=d<1?'Wow — extremely close to 50–50!':d<3?'Very close! The 50–50 pattern is showing.':d<7?'Pretty close. More trials can smooth things out.':'This sample is lopsided. That is normal for a smaller sample.';fairnessMessage.textContent='Heads is at '+hp.toFixed(1)+'% and Tails is at '+tp.toFixed(1)+'%. The difference from an even 50% split is '+d.toFixed(1)+' percentage points.'}
+if(result){coinResult.textContent=result;scoreRow.classList.remove('celebrate');void scoreRow.offsetWidth;scoreRow.classList.add('celebrate')}
+recentPills.innerHTML='';(recent.length?recent:['No tosses yet']).forEach(r=>{const p=document.createElement('span');p.className=r==='Tails'?'pill tails':'pill';p.textContent=r==='Heads'?'H':r==='Tails'?'T':'No tosses yet';p.title=r;recentPills.appendChild(p)})
+}
+function animate(result){turns++;const rounds=5+(turns%2),face=result==='Heads'?0:180;coin.style.transform=`rotateY(${rounds*360+face}deg)`}
+function one(){const r=flip();r==='Heads'?heads++:tails++;total++;recent.unshift(r);recent=recent.slice(0,24);animate(r);refresh(r);message.textContent=total===1?'Nice! One toss is far too small to look perfectly balanced.':total===10?'10 tosses done. It does not have to be exactly 50–50!':total===100?'100 tosses! The overall pattern is easier to see now.':total===1000?'1,000 tosses! Notice how the percentages settle near 50–50.':Math.abs(pct(heads)-50)<2?'Your experiment is getting very close to 50–50.':'Keep going! Bigger samples often make the percentages settle down.'}
+async function many(n){flipBtn.disabled=true;for(let i=0;i<n;i++){one();if(i%50===49)await new Promise(r=>setTimeout(r,16))}flipBtn.disabled=false}
+flipBtn.addEventListener('click',()=>many(1));document.querySelectorAll('[data-batch]').forEach(b=>b.addEventListener('click',()=>many(Number(b.dataset.batch))));resetBtn.addEventListener('click',()=>{heads=tails=total=turns=0;recent=[];coin.style.transform='rotateY(0deg)';coinResult.textContent='Ready?';message.textContent="Your first toss is a tiny experiment. Let's see what happens!";refresh()});refresh();
+})();
+</script>
+</body></html>
