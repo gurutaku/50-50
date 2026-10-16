@@ -57,6 +57,40 @@
       margin-bottom: 22px
     }
 
+    .games-hub-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 9px 14px;
+      border: 1px solid #f2c9dd;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff5cf, #ffe8f1);
+      box-shadow: 0 3px 0 #ecc8dc;
+      color: #694978;
+      font-size: 14px;
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform .12s, box-shadow .12s
+    }
+
+    .games-hub-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 #ecc8dc
+    }
+
+    .games-hub-link:focus-visible {
+      outline: 3px solid #9c8cff;
+      outline-offset: 3px
+    }
+
+    .header-games-link {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 8px
+    }
+
     .brand {
       display: inline-flex;
       align-items: center;
@@ -476,6 +510,14 @@
         padding-top: 18px
       }
 
+      .games-hub-link {
+        padding: 9px 11px
+      }
+
+      .games-hub-label {
+        display: none
+      }
+
       .game-card,
       .stats-card,
       .lesson {
@@ -511,6 +553,11 @@
 <body>
   <main class="app">
     <header>
+      <div class="header-games-link">
+        <a class="games-hub-link" href="https://gurutaku.ca/coolgames/" aria-label="Back to Gurutaku Cool Games"
+          title="Back to Gurutaku Cool Games"><span aria-hidden="true">🎮</span><span class="games-hub-label">More
+            Games</span></a>
+      </div>
       <h2>Coin Toss Challenge 🪙</h2>
       <p class="subtitle">Can a fair coin really land on Heads and Tails about half the time? Make a prediction, toss
         the coin, and watch the numbers change as your experiment grows.</p>
