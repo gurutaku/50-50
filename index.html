@@ -475,6 +475,19 @@
       animation: pop .45s ease
     }
 
+        /* Footer */
+        footer {
+        text-align: center;
+        padding: 35px 24px;
+        color: #78909c;
+        font-size: 0.9rem;
+        background: #fafafa;
+        }
+
+        footer strong {
+        color: #455a64;
+        }
+
     @keyframes pop {
       0% {
         transform: scale(1)
@@ -546,6 +559,8 @@
         align-items: flex-start;
         flex-direction: column
       }
+
+
     }
   </style>
 </head>
@@ -562,6 +577,7 @@
       <p class="subtitle">Can a fair coin really land on Heads and Tails about half the time? Make a prediction, toss
         the coin, and watch the numbers change as your experiment grows.</p>
     </header>
+
     <section class="layout">
       <section class="card game-card">
         <div>
@@ -640,11 +656,17 @@
           <p>With lots of tosses, the Heads and Tails percentages tend to get closer to 50–50.</p>
         </div>
       </div>
-      <div class="tiny">🎮 Gurutaku — making learning fun by turning ideas into games. 📚</div>
     </section>
+        <!-- Footer -->
+        <footer>
+          <strong>🎮 Gurutaku</strong> — Make Learning Fun.
+          <br>
+          © 2026 Gurutaku. All rights reserved.
+        </footer>
   </main>
   <script src="coin.secured.js">
   </script>
+
 </body>
 
 </html>
